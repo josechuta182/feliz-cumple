@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Cumpleaños</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+  }
+
+  .card {
+    background: white;
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+
+  .cake {
+    font-size: 60px;
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    color: #d63384;
+    margin: 10px 0;
+  }
+
+  p {
+    color: #333;
+    line-height: 1.6;
+  }
+
+  button {
+    background: #ff69b4;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    background: #d63384;
+    transform: scale(1.05);
+  }
+
+  .galeria {
+    display: none;
+    margin-top: 20px;
+    position: relative;
+    animation: aparecer 1s ease;
+  }
+
+  .galeria img {
+    width: 100%;
+    max-width: 320px;
+    height: 350px;
+    object-fit: cover;
+    margin: 15px auto;
+    border-radius: 12px;
+    display: block;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  @keyframes caer {
+    0% { transform: translateY(-50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes aparecer {
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="cake">🎂</div>
+  <h1>¡Feliz Cumpleaños socottito!</h1>
+  <p>
+    espero que te la pases bien y que sigas echandole ganas prima y sabes que te apreciamos muchos aunque seas enojada
+    y que sigas cumpliendo muchos años mas y que se cumplan tus deseos y todo lo que corazón anela siemprree bajo la guianza de 
+    Dios y muchasss felicidades!!!!
+  </p>
+  
+  <button onclick="mostrarFotos()">Ver Sorpresa 🎉</button>
+
+  <div id="fotos" class="galeria">
+    <img src="IMG/foto2.jpg.jpg" alt="Foto 2">
+    <img src="IMG/foto1.jpg.jpg" alt="Foto 1">
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<script>
+function mostrarFotos(){
+  let galeria = document.getElementById("fotos");
+
+  if(galeria.style.display === "block"){
+    galeria.style.display = "none";
+  }else{
+    galeria.style.display = "block";
+    
+    // Tira confeti cuando se abre
+    confetti({
+      particleCount: 150,
+      spread: 70,
+      origin: { y: 0.6 }
+    });
+  }
+}
+</script>
+
+</body>
+</html>
